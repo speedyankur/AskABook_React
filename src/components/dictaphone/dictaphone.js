@@ -11,49 +11,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 const Dictaphone = () => {
   const [messages, setMessages] = useState([]);
   const [pending, setPending] = useState(false);
-  // const { speak } = useSpeechSynthesis();
   const [query, setQuery] = React.useState("");
-
-  // const {
-  //   listening,
-  //   interimTranscript,
-  //   finalTranscript,
-  //   resetTranscript,
-  //   browserSupportsSpeechRecognition,
-  // } = useSpeechRecognition();
-
-  // useEffect(() => {
-  //   if (finalTranscript !== "") {
-  //     messages.push({
-  //       text: finalTranscript,
-  //       author: "Me",
-  //     });
-  //     setMessages(messages);
-  //     setPending(true);
-  //     async function fetchData() {
-  //       const response = await ChatGPT(finalTranscript);
-  //       setPending(false);
-  //       const { choices } = response.data;
-  //       if (choices.length > 0) {
-  //         messages.push({
-  //           text: choices[0].text,
-  //           author: "BOT",
-  //         });
-  //         setMessages(messages);
-  //         speak({ text: choices[0].text });
-  //       }
-  //     }
-  //     fetchData();
-  //   }
-  // }, [interimTranscript, finalTranscript, messages]); // pass `value` as a dependency
-
-  // useEffect(
-  //   (msg) => {
-  //     console.log("got new msg", msg);
-  //   },
-  //   [messages]
-  // ); // pass `value` as a dependency
-
   async function sendQuery(e) {
     e.stopPropagation();
     e.preventDefault();
@@ -90,7 +48,7 @@ const Dictaphone = () => {
           <input
             type="text"
             name="query"
-            placeholder="Enter your queries for premature baby"
+            placeholder="Enter your Preme queries"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           ></input>
