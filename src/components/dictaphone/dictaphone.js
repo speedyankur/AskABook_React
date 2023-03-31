@@ -43,8 +43,8 @@ const Dictaphone = () => {
         })}
         <ClipLoader loading={pending} />
       </div>
-      <div className="controls">
-        <form onSubmit={(e) => sendQuery(e)}>
+      <div>
+        <form onSubmit={(e) => sendQuery(e)} className="controls">
           <input
             type="text"
             name="query"
