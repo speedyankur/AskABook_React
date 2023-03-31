@@ -1,9 +1,18 @@
 body {
-  background-image: url("bg.jpg");
-  background-size: cover;
+  /* background-image: url("bg.jpg");
+  background-size: contain;
+  background-repeat: no-repeat; */
 }
 .App {
   text-align: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+}
+h1 {
+  padding-top: 10px;
+  font-family: fantasy;
+  color: purple;
 }
 
 .App-logo {
