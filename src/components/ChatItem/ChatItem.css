@@ -15,7 +15,7 @@
   margin: 10px;
 }
 .chat-item span.me {
-  background-color: rebeccapurple;
+  background-color: #ea1b0a;
   border-bottom-right-radius: 2px;
   color: white;
 }
@@ -23,5 +23,5 @@
 .chat-item span.bot {
   color: white;
   border-bottom-left-radius: 2px;
-  background-color: mediumpurple;
+  background-color: #0f738a;
 }

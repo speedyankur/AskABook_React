@@ -2,6 +2,7 @@ body {
   /* background-image: url("bg.jpg");
   background-size: contain;
   background-repeat: no-repeat; */
+  font-family: regular, sans-serif;
 }
 .App {
   text-align: center;
@@ -11,8 +12,8 @@ body {
 }
 h1 {
   padding-top: 10px;
-  font-family: fantasy;
-  color: purple;
+  color: #ea1b0a;
+  /* color: #1ea2b1; */
 }
 
 .App-logo {
