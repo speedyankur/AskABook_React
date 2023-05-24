@@ -1,5 +1,5 @@
 const AskABook = (msg) => {
-  return fetch("http://20.76.49.54:8000/query/", {
+  return fetch("https://20.76.49.54:8000/query/", {
     method: "POST",
     headers: {
       accept: "application/json",
