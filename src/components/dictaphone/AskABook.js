@@ -7,7 +7,7 @@ const AskABook = (msg) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ question: msg }),
-    referrerPolicy: "unsafe_url",
+    //referrerPolicy: "unsafe_url",
   });
 };
 
