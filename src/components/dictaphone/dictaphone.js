@@ -25,11 +25,11 @@ const Dictaphone = () => {
     setPending(true);
     console.log(query);
     const response = await AskABook(query);
-    const text = await response.text();
-    //    console.log(text);
+    const data = await response.json();
     setPending(false);
     messages.push({
-      text: text,
+      text: data.answer,
+      urls: data.metadata.url,
       author: "BOT",
     });
     setMessages(messages);
@@ -48,7 +48,7 @@ const Dictaphone = () => {
           <input
             type="text"
             name="query"
-            placeholder="Enter your Preme queries"
+            placeholder="Enter your queries"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           ></input>

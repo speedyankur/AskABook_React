@@ -25,3 +25,6 @@
   border-bottom-left-radius: 2px;
   background-color: #0f738a;
 }
+.chat-item span.bot a {
+  color: yellow;
+}
