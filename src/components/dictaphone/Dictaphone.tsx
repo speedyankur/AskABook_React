@@ -67,7 +67,7 @@ const Dictaphone = () => {
         {messages.map(function (msg, i) {
           return <ChatItem msg={msg} key={i} />;
         })}
-        {pending && <EonUiPreloaderCircle></EonUiPreloaderCircle>}
+        {pending && <EonUiPreloaderCircle className={styles.loadingIndicator}></EonUiPreloaderCircle>}
       </div>
 
     </div>
