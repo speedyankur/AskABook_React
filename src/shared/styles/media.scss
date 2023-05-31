@@ -1,0 +1,43 @@
+$breakpoint-tablet: 767px;
+$breakpoint-desktop: 1023px;
+$breakpoint-desktop-l: 1439px;
+
+@mixin for-size($size) {
+  @if $size == phone {
+    @media (max-width: ($breakpoint-tablet)) {
+      @content;
+    }
+  } @else if $size == tablet {
+    @media (min-width: $breakpoint-tablet + 1) and (max-width: ($breakpoint-desktop)) {
+      @content;
+    }
+  } @else if $size == desktop {
+    @media (min-width: $breakpoint-desktop + 1) and (max-width: ($breakpoint-desktop-l)) {
+      @content;
+    }
+  } @else if $size == desktop-l {
+    @media (min-width: $breakpoint-desktop-l + 1) {
+      @content;
+    }
+  } @else if $size == tablet-or-smaller {
+    @media (max-width: ($breakpoint-desktop)) {
+      @content;
+    }
+  } @else if $size == desktop-or-smaller {
+    @media (max-width: ($breakpoint-desktop-l)) {
+      @content;
+    }
+  } @else if $size == tablet-or-larger {
+    @media (min-width: $breakpoint-tablet + 1) {
+      @content;
+    }
+  } @else if $size == desktop-or-larger {
+    @media (min-width: $breakpoint-desktop + 1) {
+      @content;
+    }
+  } @else if $size == desktop-l-or-larger {
+    @media (min-width: $breakpoint-desktop-l + 1) {
+      @content;
+    }
+  }
+}

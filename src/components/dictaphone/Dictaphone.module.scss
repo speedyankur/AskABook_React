@@ -1,0 +1,45 @@
+@import '../../shared/styles/media';
+
+.chatBox {
+  margin: 0 auto;
+  max-width: 638px;
+}
+
+.searchBox {
+  max-width: 670px;
+  margin: 40px auto 48px;
+  position: relative;
+  transition: border-top 0.5s ease;
+}
+
+.searchBoxWrapper {
+  max-width: 670px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  @include for-size(tablet-or-larger) {
+    padding: 0;
+  }
+}
+
+.stickySearchBox {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  box-shadow: 0 82px 84px rgb(255 255 255);
+  border-top: 100px white solid;
+  border-bottom: 50px white solid;
+  margin-top: -50px;
+  width: calc(100% - 64px);
+
+  @include for-size(tablet-or-larger) {
+    width: 100%;
+  }
+}
+
+.loadingIndicator {
+  margin: auto;
+  width: 64px;
+  display: block;
+}
