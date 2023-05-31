@@ -1,0 +1,30 @@
+build:
+  stage: build
+  image: docker
+  only:
+    - master
+    - main
+  tags:
+    - docker
+  before_script:
+    - sed "s/{{PAT_TOKEN}}/$NPM_TOKEN/g" cicd/.npmrc > .npmrc
+  script:
+    - echo building container
+    - docker build . -t eondegptsearchacr.azurecr.io/eonde-gpt-fe:$CI_COMMIT_SHORT_SHA
+    - echo pushing container
+    - docker login $ACR_LOGIN_SERVER -u $ACR_USER -p $ACR_PASSWORD
+    - docker push eondegptsearchacr.azurecr.io/eonde-gpt-fe:$CI_COMMIT_SHORT_SHA
+
+deploy:
+  stage: deploy
+  image: mcr.microsoft.com/azure-cli
+  only:
+    - master
+    - main
+  script:
+    - az aks install-cli
+    - mkdir ~/.kube
+    - echo $AKS_CONFIG| base64 -d > ~/.kube/config
+    - sed -i "s|#image#|eondegptsearchacr.azurecr.io/eonde-gpt-fe:${CI_COMMIT_SHORT_SHA}|g" deployment.yaml
+    - kubectl create namespace eonde-backend-api --dry-run=client -o yaml | kubectl apply -f -
+    - kubectl apply -f deployment.yaml -n eonde-backend-api

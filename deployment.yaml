@@ -1,0 +1,32 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: eondesearch-fe-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: eondesearch-fe
+  template:
+    metadata:
+      labels:
+        app: eondesearch-fe
+    spec:
+      containers:
+        - name: react-docker
+          image: #image#
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eondesearch-fe-service
+spec:
+  selector:
+    app: eondesearch-fe
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+  type: LoadBalancer
